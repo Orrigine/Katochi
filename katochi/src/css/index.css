@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "AdigianaToybox";
+  src: local("AdigianaToybox"),
+  url("../fonts/AdigianaUI.ttf") format('ttf');
+}
+
+@font-face {
+  font-family: "ArialRound";
+  src: local('ArialRound'), 
+  url("../fonts/ARLRDBD.ttf") format('ttf');
+}
