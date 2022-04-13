@@ -1,0 +1,40 @@
+html, body {
+    height: 100vh;
+    background-image: linear-gradient(var(--yellow1), var(--yellow3), #eeeeee, white);
+}
+form {
+    font-family: ArialRound;
+}
+
+input {
+    border-radius: 13px !important ;
+}
+
+.text {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+div.checkbox {
+    padding-left: 2%;
+}
+
+button {
+    border-radius: 20px !important ;
+    justify-content: center;
+    display: flex;
+}
+
+.leftt {
+    margin-top: 100px !important;
+    border: 3px solid green;
+}
+
+.rightt {
+    margin-top: 100px !important;
+    border: 3px solid green;
+}
+
+footer {
+    margin-top: 48vh;
+}

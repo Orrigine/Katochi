@@ -22,12 +22,10 @@ class Navigation extends Component {
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
                                     {/* <Nav className="me-auto"> */}
-                                        <Col className="left" lg={4}>
-                                        <Navbar.Brand >
-                                            <img src={Logo} height="50"  className="d-inline-block align-top" alt="logo" />
-                                            <a className="vert"><img src={DarkMoon} height="30"  className="d-inline-block align-top" alt="logo" /></a>
+                                        <Col className="vert left" lg={4}>
+                                            <Link to="/"><img src={Logo} height="50"  className="" alt="logo" /></Link>
+                                            <a className="moon"><img src={DarkMoon} height="30"  className="" alt="logo" /></a>
 
-                                        </Navbar.Brand>
                                         </Col>
 
                                         <Col className="mid" lg={4}>
@@ -38,7 +36,7 @@ class Navigation extends Component {
                                         </Col>
 
                                         <Col className="right" lg={4}>
-                                            <Link className="align-items-center" id="navlink" to="/account">Se connecter</Link>
+                                            <Link className="align-items-center" id="navlink" to="/sign">Se connecter</Link>
                                         </Col>
                                     {/* </Nav> */}
                                 </Navbar.Collapse>
