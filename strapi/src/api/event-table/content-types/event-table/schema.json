@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_tables",
+  "info": {
+    "singularName": "event-table",
+    "pluralName": "event-tables",
+    "displayName": "events"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "previewImage": {
+      "type": "string"
+    },
+    "image1": {
+      "type": "string"
+    },
+    "image2": {
+      "type": "string"
+    },
+    "image3": {
+      "type": "string"
+    },
+    "image4": {
+      "type": "string"
+    },
+    "title1": {
+      "type": "string"
+    },
+    "title2": {
+      "type": "string"
+    },
+    "title3": {
+      "type": "string"
+    },
+    "title4": {
+      "type": "string"
+    },
+    "text1": {
+      "type": "string"
+    },
+    "text2": {
+      "type": "string"
+    },
+    "text3": {
+      "type": "string"
+    },
+    "text4": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "address": {
+      "type": "string"
+    },
+    "eventID": {
+      "type": "uid"
+    },
+    "user_tables": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-table.user-table"
+    },
+    "nextEvents": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-table.user-table",
+      "inversedBy": "events"
+    }
+  }
+}

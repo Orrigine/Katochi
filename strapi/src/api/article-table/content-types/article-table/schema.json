@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_tables",
+  "info": {
+    "singularName": "article-table",
+    "pluralName": "article-tables",
+    "displayName": "articles",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "imageLink": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "articleID": {
+      "type": "uid",
+      "required": true
+    }
+  }
+}

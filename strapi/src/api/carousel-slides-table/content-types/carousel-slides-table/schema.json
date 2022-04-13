@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carousel_slides_tables",
+  "info": {
+    "singularName": "carousel-slides-table",
+    "pluralName": "carousel-slides-tables",
+    "displayName": "carousel slides",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "imageLink": {
+      "type": "string"
+    },
+    "slideID": {
+      "type": "uid"
+    }
+  }
+}
