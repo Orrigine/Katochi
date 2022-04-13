@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_tables",
+  "info": {
+    "singularName": "user-table",
+    "pluralName": "user-tables",
+    "displayName": "katochi users",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lastName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "string"
+    },
+    "superAdmin": {
+      "type": "boolean",
+      "default": false
+    },
+    "redacteur": {
+      "type": "boolean",
+      "default": false
+    },
+    "otakeur": {
+      "type": "boolean",
+      "default": false
+    },
+    "userID": {
+      "type": "uid"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-table.event-table",
+      "mappedBy": "nextEvents"
+    }
+  }
+}

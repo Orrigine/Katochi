@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "weekly_survey_tables",
+  "info": {
+    "singularName": "weekly-survey-table",
+    "pluralName": "weekly-survey-tables",
+    "displayName": "weekly survey",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "leftVotes": {
+      "type": "integer"
+    },
+    "rightVotes": {
+      "type": "integer"
+    },
+    "leftImageLink": {
+      "type": "string"
+    },
+    "rightImageLink": {
+      "type": "string"
+    },
+    "expiration": {
+      "type": "date"
+    },
+    "surveyID": {
+      "type": "uid"
+    }
+  }
+}
