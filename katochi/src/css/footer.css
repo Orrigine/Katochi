@@ -1,0 +1,29 @@
+footer {
+    font-family: "AdigianaToybox";
+    font-size: 1.5em;
+}
+
+div.margin-top {
+    padding-top: .5em !important;
+}   
+
+div.contact {
+    font-style: italic;
+    font-family: "ArialRound";
+    margin-top: 25px !important;
+    margin-bottom: 10px;
+}
+
+
+.container {
+    text-align: center;
+}
+
+.redirect {
+    text-decoration: none !important;
+    color: white !important ;
+}
+
+svg.logo {
+    margin-right: .5em;
+}

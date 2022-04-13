@@ -16,9 +16,20 @@
   color: var(--yellow1);
 }
 
+.event .event-title h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--yellow1);
+  text-align: center;
+  stroke: black;
+  stroke-miterlimit: calc(1.5 * 1.414);
+  filter: drop-shadow(8px 2px 2px black);
+  margin-bottom: 0;
+}
 
 footer{
   background-color: var(--yellow1);
   color: white;
-  font-family: "ArialRound";
+  font-family: "AdigianaToybox";
 }
+
