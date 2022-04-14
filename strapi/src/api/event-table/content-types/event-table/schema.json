@@ -4,10 +4,11 @@
   "info": {
     "singularName": "event-table",
     "pluralName": "event-tables",
-    "displayName": "events"
+    "displayName": "events",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -15,18 +16,6 @@
       "type": "string"
     },
     "previewImage": {
-      "type": "string"
-    },
-    "image1": {
-      "type": "string"
-    },
-    "image2": {
-      "type": "string"
-    },
-    "image3": {
-      "type": "string"
-    },
-    "image4": {
       "type": "string"
     },
     "title1": {
@@ -60,18 +49,54 @@
       "type": "string"
     },
     "eventID": {
-      "type": "uid"
+      "type": "uid",
+      "required": true
     },
-    "user_tables": {
+    "users": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::user-table.user-table"
-    },
-    "nextEvents": {
-      "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::user-table.user-table",
       "inversedBy": "events"
+    },
+    "image1": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "image2": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "image3": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "image4": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -16,22 +16,41 @@
       "type": "string"
     },
     "leftVotes": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "rightVotes": {
-      "type": "integer"
-    },
-    "leftImageLink": {
-      "type": "string"
-    },
-    "rightImageLink": {
-      "type": "string"
+      "type": "integer",
+      "default": 0
     },
     "expiration": {
       "type": "date"
     },
     "surveyID": {
-      "type": "uid"
+      "type": "uid",
+      "required": true
+    },
+    "rightImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "leftImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
