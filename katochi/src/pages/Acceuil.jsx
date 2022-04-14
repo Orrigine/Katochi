@@ -19,8 +19,9 @@ class Acceuil extends Component {
         <div className="event">
           <div className="event-title">
             <h2>Nos Événements</h2>
-            <Carouselle />
-            <p> Coucou</p>
+            <div className="carou">
+              <Carouselle />
+            </div>
           </div>
           <div className="event-carousel">
             

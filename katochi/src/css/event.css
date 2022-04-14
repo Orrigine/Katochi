@@ -1,0 +1,56 @@
+.banner{
+  margin-top:50px!important;
+}
+
+.row {
+--bs-gutter-x: 0!important;
+}
+
+.row.inscription{
+  margin-top:50px!important;
+}
+
+.btn-primary {
+  background-color: var(--yellow1)!important;
+  border-color: black!important;
+  border-radius: 4px!important;
+  border: 3px solid black!important;
+  box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
+  width: 354px;
+  height: 69px;
+  font-size: 40px!important;
+  margin-top: 0;
+  padding: 0!important;
+}
+
+.row1{
+  display: flex;
+  margin-top: 100px!important;
+  padding-left: 0px!important;
+  border-radius: 10px;
+  background-color: var(--yellow1);
+  width:25%!important;
+  margin-right: 20%!important;
+}
+
+.text1{
+  font-size: 30px!important;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.text1 h2 {
+  margin-top: 10%;
+}
+
+.text1 .rectangle{
+  width:439px;
+  height: 193px;
+  background-color: white;
+  border: 3px solid black!important;
+  border-radius: 10px;
+  padding-top:9%;
+}
