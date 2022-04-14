@@ -13,106 +13,128 @@ import { Form } from "react-bootstrap";
 
 import '../css/sign.css';
 
-function Sign (props) {
-    
-    const [Firstname, setFirstname] = useState("");
-    const [Name, setName] = useState("");
-    const [Username, setUsername] = useState("");
-    const [Email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
-    const history = useNavigate()
+
+function Sign(props) {
+    const [userInfo, setUserInfo] = useState({
+        lastName: "",
+        firstName: "",
+        username: "",
+        email: "",
+        password: "",
+
+
+    })
+    // const [firstName, setFirstname] = useState(0);
+    // const [lastName, setName] = useState(0);
+    // const [username, setUsername] = useState(0);
+    // const [email, setEmail] = useState(0);
+    // const [password, setPassword] = useState(0);
+
+    const navigate = useNavigate()
     const { setActiveUser, setLoggedIn } = props;
+
+    const handleChange = (e)  => {
+        e.preventDefault();
+        setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const reqBody = {
-          Firstname: Firstname,
-          Name: Name,
-          Pseudo: Username,
-          Email: Email,
-          Password: Password,
-        };
-        const res = await axios.post(
-            "http://localhost:1337/users-details",
-            reqBody
-          );
-          if (res.statusText === "OK") {
-            setActiveUser(res.data);
-            setLoggedIn(true);
-            history.push('/')
-          }
-        };
+        console.log(userInfo);
+        setUserInfo({lastName:"", firstName:"", username:"", email:"", password:""});
 
 
-        return (
+        // const request = userInfo;
+        axios.post('http://localhost:1337/api/auth/local/register', userInfo)
+        .then(response => {
+            console.log("User created");
+            console.log("User token : " + response.data.jwt);
+                setActiveUser(response.data);
+                setLoggedIn(true);
+                navigate("/");
+        })
+        .then((response) => {
+            // Handle success.
 
-            <>
-                <Navigation />
+            console.log('User profile', response.data.user);
+            console.log('User token', response.data.jwt);
+          })
+          .catch((error) => {
+            // Handle error.
+            console.log('An error occurred:', error.response);
+          });
+    };
 
-                <Row>
 
-                    <Col className="leftt" lg={{ span: 3, offset: 2 }}>
-                        <Form onSubmit={(e) => handleSubmit(e)}>
-                            <h2 className="text">Nouveau sur <br /> KATOCHI ?</h2>
-                            <Form.Group className="mb-3" controlId="">
-                                <Form.Control onChange={(e) => setFirstname(e.target.value)} name="Firstname" type="text" placeholder="Nom" />
+    return (
 
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="">
-                                <Form.Control onChange={(e) => setName(e.target.value)} name="Name" type="text" placeholder="Prénom" />
+        <>
+            <Navigation />
 
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="">
-                                <Form.Control onChange={(e) => setUsername(e.target.value)} name="Username" type="text" placeholder="Pseudo" />
+            <Row>
 
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control onChange={(e) => setEmail(e.target.value)} name="Email" type="email" placeholder="Adresse mail" />
+                <Col className="leftt" lg={{ span: 3, offset: 2 }}>
+                    <Form onSubmit={(e) => handleSubmit(e)}>
+                        <h2 className="text">Nouveau sur <br /> KATOCHI ?</h2>
+                        <Form.Group className="mb-3" controlId="">
+                            <Form.Control onChange={(e) => handleChange(e)} value={userInfo.firstName} name="firstName" type="text" placeholder="Nom" />
 
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="">
-                                <Form.Control onChange={(e) => setPassword(e.target.value)} name="Password" type="password" placeholder="Mot de passe" />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="">
+                            <Form.Control onChange={(e) => handleChange(e)} value={userInfo.lastName} name="lastName" type="text" placeholder="Prénom" />
 
-                            </Form.Group>
-                            <Form.Group className="checkbox mb-3" controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Se souvenir de moi" />
-                            </Form.Group>
-                            <div class="text-center">
-                                <Button className='' variant="secondary" type="submit">
-                                    Je crée un compte
-                                </Button>
-                            </div>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="">
+                            <Form.Control onChange={(e) => handleChange(e)} value={userInfo.username} name="username" type="text" placeholder="Pseudo" />
 
-                        </Form>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Control onChange={(e) => handleChange(e)} value={userInfo.email} name="email" type="email" placeholder="Adresse mail" />
 
-                    </Col>
-                    <Col className="rightt" lg={{ span: 3, offset: 2 }}>
-                        <Form>
-                            <h2 className="text">Déjà membre ?</h2>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="">
+                            <Form.Control onChange={(e) => handleChange(e)} value={userInfo.password} name="password" type="password" placeholder="Mot de passe" />
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                        </Form.Group>
+                        <Form.Group className="checkbox mb-3" controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Se souvenir de moi" />
+                        </Form.Group>
+                        <div class="text-center">
+                            <Button className='' variant="secondary" type="submit">
+                                Je crée un compte
+                            </Button>
+                        </div>
 
-                                <Form.Control type="text" placeholder="Adresse mail ou pseudo" />
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                    </Form>
 
-                                <Form.Control type="password" placeholder="Mot de passe" />
-                            </Form.Group>
-                            <div className="text-center">
+                </Col>
+                <Col className="rightt" lg={{ span: 3, offset: 2 }}>
+                    <Form>
+                        <h2 className="text">Déjà membre ?</h2>
 
-                                <Button className='' variant="secondary" type="submit">
-                                    Se connecter
-                                </Button>
-                            </div>
-                        </Form>
-                    </Col>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                </Row>
-            
+                            <Form.Control type="text" placeholder="Adresse mail ou pseudo" />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
 
-                <Footer />
-            </>
-        );
+                            <Form.Control type="password" placeholder="Mot de passe" />
+                        </Form.Group>
+                        <div className="text-center">
 
-    } 
-    export default Sign;
+                            <Button className='' variant="secondary" type="submit">
+                                Se connecter
+                            </Button>
+                        </div>
+                    </Form>
+                </Col>
+
+            </Row>
+
+
+            <Footer />
+        </>
+    );
+
+}
+export default Sign;
