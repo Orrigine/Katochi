@@ -8,24 +8,32 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "question": {
       "type": "string"
     },
-    "mediaLink": {
-      "type": "string"
-    },
     "answer": {
       "type": "string"
     },
-    "reward": {
-      "type": "string"
-    },
     "questionID": {
-      "type": "uid"
+      "type": "uid",
+      "required": true
+    },
+    "reward": {
+      "type": "integer"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
