@@ -8,14 +8,11 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "imageLink": {
       "type": "string"
     },
     "author": {
@@ -30,6 +27,16 @@
     "articleID": {
       "type": "uid",
       "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
