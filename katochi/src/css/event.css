@@ -29,8 +29,18 @@
   padding-left: 0px!important;
   border-radius: 10px;
   background-color: var(--yellow1);
-  width:25%!important;
-  margin-right: 20%!important;
+  flex-wrap: nowrap!important;
+}
+
+.micro {
+  width: 500px;
+  height: auto;
+}
+
+@media only screen and (max-width: 480px) {
+  .micro {
+    width: 100%;
+  }
 }
 
 .text1{
@@ -42,15 +52,13 @@
   margin-bottom: 0;
 }
 
-.text1 h2 {
-  margin-top: 10%;
+.zone-text{
+
 }
 
-.text1 .rectangle{
-  width:439px;
-  height: 193px;
-  background-color: white;
-  border: 3px solid black!important;
-  border-radius: 10px;
-  padding-top:9%;
+.title1{
+  color:white
+}
+.text1 h2 {
+  margin-top: 10%;
 }

@@ -17,12 +17,11 @@
 }
 
 .event .event-title h2 {
-  font-size: 2.5rem;
+  font-size: 90px;
   font-weight: bold;
   color: var(--yellow1);
   text-align: center;
-  stroke: black;
-  stroke-miterlimit: calc(1.5 * 1.414);
+  -webkit-text-stroke: 0.5px black!important;
   filter: drop-shadow(8px 2px 2px black);
   margin-bottom: 0;
 }

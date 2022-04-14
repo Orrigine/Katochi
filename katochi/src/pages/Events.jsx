@@ -4,7 +4,7 @@ import React, {
 import Navigation from "../components/Navigation";
 import Banner from "../img/event-banner.png";
 import Micro from "../img/micro.png";
-import { Button, Col, Row } from "react-bootstrap"
+import { Button, Col, Row, Container } from "react-bootstrap"
 import '../css/event.css';
 
 class Events extends Component {
@@ -26,25 +26,28 @@ class Events extends Component {
                         </Button>  
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <Row>
-                            <Col className="row1" lg={{offset:2}}>
-                                <img src={Micro} alt="Micro"/>
-                                <div className="text1">
-                                    <h2>
-                                        KARAOKÉ
-                                    </h2>
-                                    <div className="rectangle">
-                                        <p>
-                                            Viens chanter les musiques de tes animes préférés !
-                                        </p>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
+              <Container>
+                <Row className="row1">
+                    <Col lg={{span:5}} md={{span:6}} sm={{span:6}}>
+                        <img src={Micro} alt="Micro" className="micro"/>
                     </Col>
+                    <Col>
+                      <Row className="zone-text">
+                        <Col className="title1" lg={{span: 5, offset:3}} md={{span: 7, offset:1}} sm={{span: 10, offset:2}}>
+                          <div className="text1">
+                          <h2>KARAOKÉ</h2>
+                          </div>
+                          <div className="rectangle">
+                            <p>
+                              Viens chanter les musiques de tes animes préférés !
+                            </p>
+                          </div>
+                        </Col> 
+                      </Row> 
+                    </Col>  
                 </Row>
+              </Container>
+
             </div>
             </>
         );
