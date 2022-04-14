@@ -19,10 +19,12 @@
       "type": "string"
     },
     "username": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "unique": true
     },
     "password": {
       "type": "string"
@@ -49,14 +51,24 @@
       "mappedBy": "users"
     },
     "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "points": {
+      "type": "biginteger"
+    },
+    "otakultureWins": {
+      "type": "integer"
+    },
+    "achievementNumber": {
+      "type": "integer"
     }
   }
 }

@@ -1,19 +1,24 @@
-import React, {
-    Component
-} from "react";
+import React, { Component } from "react";
 import Navigation from "../components/Navigation";
-import Banner from "../img/event-banner.png";
+import Footer from "../components/Footer";
+import '../fonts/AdigianaUI.ttf';
+import '../css/accueil.css'
+import { Link } from "react-router-dom";
+import { Col, Container, Row } from "react-bootstrap";
 
 class Events extends Component {
-    render() {
-        console.log(Banner);
-        return (
-            <>
-                <Navigation />
-                <img src={Banner} alt=""/>
 
-            </>
-        );
+    render() {
+        return (<>
+            <Navigation />
+
+            <Container className='centered'>
+                <Link to='/'>Revenir sur la page d'accueil</Link>
+            </Container>
+
+            <Footer />
+        </>);
     }
 }
+
 export default Events;
