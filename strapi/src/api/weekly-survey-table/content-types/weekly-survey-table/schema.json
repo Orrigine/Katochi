@@ -26,10 +26,6 @@
     "expiration": {
       "type": "date"
     },
-    "surveyID": {
-      "type": "uid",
-      "required": true
-    },
     "rightImage": {
       "type": "media",
       "multiple": false,

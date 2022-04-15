@@ -41,9 +41,6 @@
       "type": "boolean",
       "default": false
     },
-    "userID": {
-      "type": "uid"
-    },
     "events": {
       "type": "relation",
       "relation": "manyToMany",

@@ -45,10 +45,6 @@
     "address": {
       "type": "string"
     },
-    "eventID": {
-      "type": "uid",
-      "required": true
-    },
     "users": {
       "type": "relation",
       "relation": "manyToMany",
@@ -100,14 +96,15 @@
       ]
     },
     "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

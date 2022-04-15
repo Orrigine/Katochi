@@ -35,6 +35,7 @@ class Events extends Component {
     render() {
 
         let nextEvents = []
+        console.log(this.state.events)
         if (this.state.events.data) {
             nextEvents = this.state.events.data.filter(
                 event => Date.parse(event.attributes.date) >= Date.now()
@@ -66,11 +67,11 @@ class Events extends Component {
                                             {/* {data.attributes.previewImage} */}
                                         </Col>
                                         <Col>
-                                            <Container fluid>
+                                            <Container fluid="true">
                                                 <h3>Adresse: </h3>
                                                 {data.attributes.address}
                                             </Container>
-                                            <Container fluid>
+                                            <Container fluid="true">
                                                 <h3>Date: </h3>
                                                 {data.attributes.date}
                                             </Container>
