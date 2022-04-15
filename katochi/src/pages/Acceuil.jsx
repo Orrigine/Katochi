@@ -2,8 +2,11 @@ import React, {Component} from "react";
 import Navigation from "../components/Navigation";
 import Carouselle from "../components/Carousel";
 import Footer from "../components/Footer";
+import { Container, Row, Col } from "react-bootstrap"
 import '../fonts/AdigianaUI.ttf';
 import '../css/accueil.css'
+import Twitch from "../components/Twitch";
+
 
 class Acceuil extends Component {
   render() {
@@ -19,14 +22,16 @@ class Acceuil extends Component {
         <div className="event">
           <div className="event-title">
             <h2>Nos Événements</h2>
-            <Carouselle />
-            <p> Coucou</p>
+            <div className="carou">
+              <Carouselle />
+            </div>
           </div>
           <div className="event-carousel">
             
           </div>
         </div>
         <div className="twitch">
+          <Twitch />
         </div>
         <div className="articles">
         </div>

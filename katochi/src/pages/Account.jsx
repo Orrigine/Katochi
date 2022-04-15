@@ -19,7 +19,7 @@ class Account extends Component {
     return (<>
       <Navigation />
       
-      {!this.state.loading ?
+      {!this.state.connected ?
         <Container className='centered'>
           <p>Vous n'êtes pas connecté !</p>
           <Link to='/sign'>Connectez-vous ici</Link>
