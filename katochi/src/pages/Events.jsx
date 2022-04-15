@@ -66,8 +66,14 @@ class Events extends Component {
                                             {/* {data.attributes.previewImage} */}
                                         </Col>
                                         <Col>
-                                            {data.attributes.address}
-                                            {data.attributes.date}
+                                            <Container fluid>
+                                                <h3>Adresse: </h3>
+                                                {data.attributes.address}
+                                            </Container>
+                                            <Container fluid>
+                                                <h3>Date: </h3>
+                                                {data.attributes.date}
+                                            </Container>
                                         </Col>
                                     </Row>
                                     <Button fluid>Voir l'évennement</Button>
