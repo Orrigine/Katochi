@@ -30,7 +30,7 @@ function Sign(props) {
     // const [email, setEmail] = useState(0);
     // const [password, setPassword] = useState(0);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { setActiveUser, setLoggedIn } = props;
 
     const handleChange = (e)  => {
@@ -43,21 +43,25 @@ function Sign(props) {
         console.log(userInfo);
         setUserInfo({lastName:"", firstName:"", username:"", email:"", password:""});
 
+        
 
         // const request = userInfo;
-        axios.post('http://localhost:1337/api/auth/local/register', userInfo)
-        .then(response => {
-            console.log("User created");
-            console.log("User token : " + response.data.jwt);
-                setActiveUser(response.data);
-                setLoggedIn(true);
-                navigate("/");
-        })
+        axios.post('http://localhost:1337/api/user-tables', {
+            "data": {
+                firstName:userInfo.firstName,
+                lastName:userInfo.lastName,
+                username:userInfo.username,
+                email:userInfo.email,
+                password:userInfo.password
+            }
+           
+            })
         .then((response) => {
             // Handle success.
-
-            console.log('User profile', response.data.user);
-            console.log('User token', response.data.jwt);
+            console.log(response)
+            console.log("Success!");
+            // console.log('User profile', response.data.username);
+            // console.log('User token', response.data.jwt);
           })
           .catch((error) => {
             // Handle error.
