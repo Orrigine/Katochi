@@ -2,6 +2,7 @@ nav {
     font-family: "AdigianaToybox";
     border-bottom: 1px solid;
     font-size: 1.5em;
+    background-color: white;
 }
 
 a:hover{
@@ -9,12 +10,15 @@ a:hover{
 }
 
 .vert {
-    align-items: center;
+    
+}
+
+.moon {
+    padding-left: 2.5%;
 }
 
 .left {
-    border: 3px solid green;
-    padding-left: 1.5%;
+    padding-left: 1%;
 }
 
 .mid {
