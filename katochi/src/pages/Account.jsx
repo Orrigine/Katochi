@@ -16,6 +16,11 @@ class Account extends Component {
   }
 
   render() {
+
+    // const logoutOnClick = () => {
+    //     dispatch(logout())
+    //     localStorage.clear() // already clearing
+    // }
     return (<>
       <Navigation />
       

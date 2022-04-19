@@ -12,6 +12,10 @@ import '../css/App.css';
 import '../css/navbar.css';
 
 class Navigation extends Component {
+    constructor(props){
+        super(props);
+        
+    }
     render() {
 
         return (
@@ -36,7 +40,8 @@ class Navigation extends Component {
                                         </Col>
 
                                         <Col className="right" lg={4}>
-                                            <Link className="align-items-center" id="navlink" to="/sign">Se connecter</Link>
+
+                                            <Link className="align-items-center" id="navlink" to="/sign">{this.props.signToNavbar}</Link>
                                         </Col>
                                     {/* </Nav> */}
                                 </Navbar.Collapse>
