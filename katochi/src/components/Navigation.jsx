@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { Navbar, Nav, Container, Button } from "react-bootstrap"
+import { Container, Navbar } from "react-bootstrap"
 import { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 
@@ -24,13 +24,12 @@ class Navigation extends Component {
                                     {/* <Nav className="me-auto"> */}
                                         <Col className="vert left" lg={4}>
                                             <Link to="/"><img src={Logo} height="50"  className="" alt="logo" /></Link>
-                                            <a className="moon"><img src={DarkMoon} height="30"  className="" alt="logo" /></a>
+                                            <Container className="moon"><img src={DarkMoon} height="30"  className="" alt="logo" /></Container>
 
                                         </Col>
 
                                         <Col className="mid" lg={4}>
-                                            <Link className="align-items-center" id="navlink" to="/events">Événements</Link>            
-                                            <Link className="align-items-center" id="navlink" to="/twitch">Twitch</Link>
+                                            <Link className="align-items-center" id="navlink" to="/events">Événements</Link>
                                             <Link className="align-items-center" id="navlink" to="/articles">Articles</Link>
                                             <Link className="align-items-center" id="navlink" to="/otakulture">Otakulture</Link>
                                         </Col>
