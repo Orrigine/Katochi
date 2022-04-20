@@ -4,17 +4,25 @@ import { Container, Row, Col } from "react-bootstrap"
 import '../css/App.css';
 import '../css/ArticleCard.css';
 import { Component } from "react";
+import twitch1 from "../img/imgtwitch1.JPG"
 
 class ArticleCard extends Component {
     render() {
         return(
             <Col className="Card">
                 
-                    <img src="" alt="placeholder" />
+                    <img className="img-articleCard" src={twitch1} alt="placeholder" /> 
                     <h2>title article Card</h2>
-                    <p>lorem ipsum</p>
-                    <button type="button" className="card-button">more</button>
-                
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                        Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    
+                    <div className="button-div">
+                        <button type="button" className="card-button">Lire l'article</button>
+                    </div>
             </Col>
         )
     }

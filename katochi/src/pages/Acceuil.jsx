@@ -37,8 +37,10 @@ class Acceuil extends Component {
             <ArticleCard />
             </Row>
           </div>
+          <div className="button-div">
           < button className="article-button">afficher plus d'articles</button>
-        </div>
+          </div>
+          </div>
         <Footer />
       </div>
     );
