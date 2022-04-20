@@ -3,7 +3,29 @@ body {
     background: linear-gradient(var(--yellow1), var(--yellow3), white);
 }
 
+.articles{
+    background-color: white;
+}
+
+.articles-title{
+    color: var(--yellow1);
+    text-align: center;
+    font-size: 75px!important;
+    margin-top: 15px;
+    margin-bottom: 75px;
+    -webkit-text-stroke: 1.33px black;
+    text-transform: uppercase;
+}
+
+.article-button{
+    font-size: 40px;
+    border-radius: 0px!important;
+    background-color: white;
+    border-color: black;
+    border-width: 3px;
+
 .header {
     height: 100vh;
     background-image: url("../img/background_logo.png");
+
 }
