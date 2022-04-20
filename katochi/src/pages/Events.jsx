@@ -43,7 +43,7 @@ class Events extends Component {
         }
 
         return (<>
-            <Navigation />
+            <Navigation getUserData={this.props.getUserData}/>
 
             <Row className="justify-content-md-center">
                 {this.state.loading === true ?

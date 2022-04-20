@@ -1,21 +1,14 @@
-import React from "react";
 import axios from "axios";
-import { Component } from "react";
+import { Component, useState, useRef } from "react";
+import React from "react";
+import { Button, Form, Row, Col } from "react-bootstrap";
 
-import { Navbar, Nav, Container, Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
-import { Form } from "react-bootstrap";
-
-import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Row, Col } from "react-bootstrap";
 
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
-
 import '../css/sign.css';
-import { useRef } from "react";
 
 
 
@@ -23,28 +16,33 @@ class Sign extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            
-
+            user: [],
         };
     }
 
+    // setUserActive = (userData) => {
+    //     this.setState({user: userData })
+    // }
     render() {
         return (
 
             <>
-
-                {/* <Navigation signToNavbar={userData} /> */}
-                <Navigation />
+                <Navigation getUserData={this.props.getUserData} />
 
                 <Row>
                     <Col className="leftt" lg={{ span: 3, offset: 2 }}>
-                        <Register/>
+                        <Register />
                     </Col>
                     <Col className="rightt" lg={{ span: 3, offset: 2 }}>
-                        <Connexion/>
+                        <Connexion parentCallback={this.callbackFunction} />
                     </Col>
 
                 </Row>
+                <Col>
+                    <p>User name is {this.state.user}</p>
+                    <p>User token is {this.state.user.token ? this.state.user.token : "not found"}</p>
+
+                </Col>
 
                 <Footer />
             </>
@@ -65,9 +63,6 @@ export function Register(props) {
     const [rememberRegister, setrememberRegister] = useState(false);
     const [ErrorRegisterMessage, setErrorRegisterMessage] = useState('');
     const [userData, setUserData] = useState('');
-
-
-    const { setLoggedIn = false } = props;
 
     const errorRegisterRef = useRef();
 
@@ -110,17 +105,20 @@ export function Register(props) {
                     // setUserData(response.data.user)
                     // console.log(userData)
 
+                    let userInformations = { user: response.data.user, token: response.data.token };
+                    console.log(userInformations)
+
                     saveUser(response);
-                    // console.log('User profile', response.data.user);
-                    // console.log('User token', response.data.jwt);
+                    console.log('User profile', response.data.user);
+                    console.log('User token', response.data.jwt);
                     navigate("/");
                 }
                 console.log(response)
 
             })
+            
             .catch((error) => {
                 // Handle error.
-                console.log('An error occurred:', error.response);
                 if (!error.response) {
                     setErrorRegisterMessage('Aucune réponse du serveur. Désolé :/')
                 } else if (error.response.status === 400) {
@@ -131,14 +129,9 @@ export function Register(props) {
                 else if (error.response.data.error.message === "Email is already taken") {
                     setErrorRegisterMessage('Cet email est déjà utilisé')
                 }
+                console.log('An error occurred:', error.response);
 
             });
-    };
-
-
-    const signToNavbar = () => {
-        setUserData(userData);
-
     };
 
     return (
@@ -149,43 +142,43 @@ export function Register(props) {
             <Row> */}
 
 
-                {/* <Col className="leftt" lg={{ span: 3, offset: 2 }}> */}
-                    <Form onSubmit={(e) => handleSubmitRegister(e)}>
-                        <h2 className="text">Nouveau sur <br /> KATOCHI ?</h2>
-                        <Form.Group className="mb-3" controlId="">
-                            <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.firstName} name="firstName" type="text" placeholder="Nom" />
+            {/* <Col className="leftt" lg={{ span: 3, offset: 2 }}> */}
+            <Form onSubmit={(e) => handleSubmitRegister(e)}>
+                <h2 className="text">Nouveau sur <br /> KATOCHI ?</h2>
+                <Form.Group className="mb-3" controlId="">
+                    <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.firstName} name="firstName" type="text" placeholder="Nom" />
 
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="">
-                            <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.lastName} name="lastName" type="text" placeholder="Prénom" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="">
+                    <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.lastName} name="lastName" type="text" placeholder="Prénom" />
 
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="">
-                            <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.username} name="username" type="text" placeholder="Pseudo" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="">
+                    <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.username} name="username" type="text" placeholder="Pseudo" />
 
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.email} name="email" type="email" placeholder="Adresse mail" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.email} name="email" type="email" placeholder="Adresse mail" />
 
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="">
-                            <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.password} name="password" type="password" placeholder="Mot de passe" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="">
+                    <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.password} name="password" type="password" placeholder="Mot de passe" />
 
-                        </Form.Group>
-                        <Form.Group className="checkbox mb-3" controlId="formBasicCheckbox1">
-                            <Form.Check onChange={(e) => handleChange(e)} checked={rememberRegister} name="checkbox" type="checkbox" label="Se souvenir de moi" />
-                        </Form.Group>
-                        <div class="text-center">
-                            <p ref={errorRegisterRef} className={ErrorRegisterMessage ? "errorMessage" : "offscreen"} aria-live="assertive">{ErrorRegisterMessage}</p>
-                            <Button className='' variant="secondary" type="submit">
-                                Je crée un compte
-                            </Button>
-                        </div>
+                </Form.Group>
+                <Form.Group className="checkbox mb-3" controlId="formBasicCheckbox1">
+                    <Form.Check onChange={(e) => handleChange(e)} checked={rememberRegister} name="checkbox" type="checkbox" label="Se souvenir de moi" />
+                </Form.Group>
+                <div class="text-center">
+                    <p ref={errorRegisterRef} className={ErrorRegisterMessage ? "errorMessage" : "offscreen"} aria-live="assertive">{ErrorRegisterMessage}</p>
+                    <Button className='' variant="secondary" type="submit">
+                        Je crée un compte
+                    </Button>
+                </div>
 
-                    </Form>
+            </Form>
 
-                {/* </Col> */}
-                {/* <Col className="rightt" lg={{ span: 3, offset: 2 }}>
+            {/* </Col> */}
+            {/* <Col className="rightt" lg={{ span: 3, offset: 2 }}>
                     <Connexion />
                 </Col> */}
 
@@ -228,31 +221,45 @@ export function Connexion(props) {
 
             identifier: userConnexionInfo.identifier,
             password: userConnexionInfo.password,
-            // rememberMe: rememberLogin
+            rememberMe: rememberLogin
 
         })
-            .then((response) => {
-                console.log("LOGGED IN!")
+        .then((response) => {
+            // Handle success.
+            if (response?.status === 200) {
+                console.log("LOGGED IN!");
+                setUserData(response.data.user)
+                console.log(userData)
+                // setUserData(response.data.user)
+                // console.log(userData)
+
+                let userInformations = { user: response.data.user, token: response.data.token };
+                console.log(userInformations)
 
                 saveUser(response);
-                // console.log('User profile', response.data.user);
-                // console.log('User token', response.data.jwt);
+                console.log('User profile', response.data.user);
+                console.log('User token', response.data.jwt);
                 navigate("/");
-            })
-            .catch((error) => {
-                // Handle error.
-                console.log('An error occurred:', error.response);
-                if (!error?.response) {
-                    setErrorConnexionMessage('Aucune réponse du serveur. Désolé :/')
-                } else if (error.response.status === 400) {
-                    setErrorConnexionMessage('Un champ est invalide ou manquant')
-                } else if (error.response.status === 401) {
-                    setErrorConnexionMessage("Tu n'es pas authorisé à faire cela")
-                }
-                else if (error.response.statusText === "This attribute must be unique") {
-                    setErrorConnexionMessage('Cet email est déjà utilisé')
-                }
-            });
+            }
+            console.log(response)
+
+        })
+        
+        .catch((error) => {
+            // Handle error.
+            if (!error.response) {
+                setErrorConnexionMessage('Aucune réponse du serveur. Désolé :/')
+            } else if (error.response.status === 400) {
+                setErrorConnexionMessage('Un champ est invalide ou manquant')
+            } else if (error.response.status === 401) {
+                setErrorConnexionMessage("Tu n'es pas authorisé à faire cela")
+            }
+            else if (error.response.data.error.message === "Email is already taken") {
+                setErrorConnexionMessage('Cet email est déjà utilisé')
+            }
+            console.log('An error occurred:', error.response);
+
+        });
         // axios.post('http://localhost:1337/api/auth/local/register', {
         //     rememberMe: rememberLogin
         // })
@@ -267,6 +274,7 @@ export function Connexion(props) {
         //     });
 
     }
+
     const signToNavbar = () => {
         setUserData(userData);
 
@@ -277,13 +285,11 @@ export function Connexion(props) {
         <>
             <Form onSubmit={(e) => handleSubmitConnexion(e)}>
                 <h2 className="text">Déjà membre ?</h2>
-
                 <Form.Group className="mb-3" controlId="formBasicEmail">
 
                     <Form.Control onChange={(e) => handleChangeLogin(e)} value={userConnexionInfo.identifier} name="identifier" type="text" placeholder="Adresse mail ou pseudo" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-
                     <Form.Control onChange={(e) => handleChangeLogin(e)} value={userConnexionInfo.password} name="password" type="password" placeholder="Mot de passe" />
                 </Form.Group>
                 <Form.Group className="checkbox mb-3" controlId="formBasicCheckbox2">
@@ -298,8 +304,6 @@ export function Connexion(props) {
                 </div>
             </Form>
             <Button primary onClick={() => signToNavbar()}>Click Parent</Button>
-
-
         </>
     )
 
