@@ -8,7 +8,6 @@ import './css/App.css';
 
 import Acceuil from "./pages/Acceuil.jsx";
 import Events from "./pages/Events.jsx";
-import Twitch from "./pages/Twitch.jsx";
 import Articles from "./pages/Articles.jsx";
 import Otakulture from "./pages/Otakulture.jsx";
 import Account from "./pages/Account.jsx";
@@ -23,7 +22,6 @@ class App extends Component {
                 <Routes>
                   <Route exact path="/" element={<Acceuil />} />
                   <Route exact path="/events" element={<Events />} />
-                  <Route exact path="/twitch" element={<Twitch />} />
                   <Route exact path="/articles" element={<Articles />} />
                   <Route exact path="/otakulture" element={<Otakulture />} />
                   <Route exact path="/sign" element={<Sign />} />

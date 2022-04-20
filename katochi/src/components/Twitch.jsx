@@ -12,22 +12,10 @@ class Twitch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      vidPositions: {
-        vid1: 'https://www.youtube.com/embed/iik25wqIuFo',
-        vid2: 'https://www.youtube.com/embed/iik28wqIuFo',
-        vid3: 'https://www.youtube.com/embed/ijk25wqIuFo'
-      }
+      vid1: 'iik25wqIuFo',
+      vid2: 'U_rWZK_8vUY',
+      vid3: 'TrqFje3KfFc'
     }
-  }
-
-  video = (url) => {
-    return <iframe
-      src={url}
-      frameBorder="0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      title="Vidéo !"
-    />
   }
 
   render() {
@@ -48,23 +36,44 @@ class Twitch extends Component {
         <Container>
           <Row>
             <Col lg="6" sm="12">
-              <div id='1' className="video-responsive">
-                {this.video(this.state.vidPositions.vid1)}
+              <div className="video-responsive" >
+                  <iframe
+                  src={'https://www.youtube.com/embed/' + this.state.vid1}
+                  frameBorder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Vidéo !"
+                />
               </div>
             </Col>
 
             <Col lg="6" sm="12">
               <Row>
                 <Col>
-                  <div id='2' className="video-responsive">
-                    {this.video(this.state.vidPositions.vid2)}
-                  </div>
-
+                    <img className="imgTwitch"
+                    src={'https://img.youtube.com/vi/' + this.state.vid2 + '/default.jpg'}
+                    alt="video 2" 
+                    onClick={() => {
+                      let temp = this.state.vid2;
+                      this.setState({
+                        vid2: this.state.vid1,
+                        vid1: temp
+                      })
+                    }}
+                  />
                 </Col>
                 <Col>
-                  <div id='3' className="video-responsive">
-                    {this.video(this.state.vidPositions.vid3)}
-                  </div>
+                  <img className="imgTwitch"
+                    src={'https://img.youtube.com/vi/' + this.state.vid3 + '/default.jpg'}
+                    alt="video 3" 
+                    onClick={() => {
+                      let temp = this.state.vid3;
+                      this.setState({
+                        vid3: this.state.vid1,
+                        vid1: temp
+                      })
+                    }}
+                  />
                 </Col>
               </Row>
               <Row>
