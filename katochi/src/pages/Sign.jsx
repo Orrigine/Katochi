@@ -1,21 +1,58 @@
 import React from "react";
 import axios from "axios";
+import { Component } from "react";
+
+import { Navbar, Nav, Container, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import { Form } from "react-bootstrap";
+
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom"
-import { Navbar, Nav, Container, Button } from "react-bootstrap"
-import { Component } from "react";
 import { Row, Col } from "react-bootstrap";
+
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { Form } from "react-bootstrap";
 
 
 import '../css/sign.css';
 import { useRef } from "react";
 
 
-function Sign(props) {
+
+class Sign extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            
+
+        };
+    }
+
+    render() {
+        return (
+
+            <>
+
+                {/* <Navigation signToNavbar={userData} /> */}
+                <Navigation />
+
+                <Row>
+                    <Col className="leftt" lg={{ span: 3, offset: 2 }}>
+                        <Register/>
+                    </Col>
+                    <Col className="rightt" lg={{ span: 3, offset: 2 }}>
+                        <Connexion/>
+                    </Col>
+
+                </Row>
+
+                <Footer />
+            </>
+        )
+    }
+} export default Sign
+
+export function Register(props) {
     const navigate = useNavigate();
     const [userRegisterInfo, setuserRegisterInfo] = useState({
         lastName: "",
@@ -26,11 +63,14 @@ function Sign(props) {
         rememberMe: null
     })
     const [rememberRegister, setrememberRegister] = useState(false);
+    const [ErrorRegisterMessage, setErrorRegisterMessage] = useState('');
+    const [userData, setUserData] = useState('');
+
+
     const { setLoggedIn = false } = props;
 
     const errorRegisterRef = useRef();
-    const [ErrorRegisterMessage, setErrorRegisterMessage] = useState('');
-    
+
 
 
 
@@ -41,7 +81,7 @@ function Sign(props) {
         setuserRegisterInfo({ ...userRegisterInfo, [e.target.name]: e.target.value })
         setrememberRegister(e.target.checked);
     }
-    
+
 
     const handleSubmitRegister = async (e) => {
         console.log(rememberRegister)
@@ -65,7 +105,11 @@ function Sign(props) {
                 // Handle success.
                 if (response?.status === 200) {
                     console.log("Success!");
-                    console.log(this.props);
+                    setUserData(response.data.user)
+                    console.log(userData)
+                    // setUserData(response.data.user)
+                    // console.log(userData)
+
                     saveUser(response);
                     // console.log('User profile', response.data.user);
                     // console.log('User token', response.data.jwt);
@@ -89,24 +133,23 @@ function Sign(props) {
                 }
 
             });
-    };  
+    };
 
-    const [data, setData] = useState('');
 
     const signToNavbar = () => {
-        setData("Coucou c'est moi");
+        setUserData(userData);
 
-    }; 
+    };
 
     return (
 
         <>
-            <Navigation signToNavbar={data} />
+            {/* <Navigation signToNavbar={userData} />
 
-            <Row>
+            <Row> */}
 
 
-                <Col className="leftt" lg={{ span: 3, offset: 2 }}>
+                {/* <Col className="leftt" lg={{ span: 3, offset: 2 }}> */}
                     <Form onSubmit={(e) => handleSubmitRegister(e)}>
                         <h2 className="text">Nouveau sur <br /> KATOCHI ?</h2>
                         <Form.Group className="mb-3" controlId="">
@@ -141,22 +184,21 @@ function Sign(props) {
 
                     </Form>
 
-                </Col>
-                <Col className="rightt" lg={{ span: 3, offset: 2 }}>
+                {/* </Col> */}
+                {/* <Col className="rightt" lg={{ span: 3, offset: 2 }}>
                     <Connexion />
-                </Col>
+                </Col> */}
 
 
-            </Row>
-            <Button primary onClick={() => signToNavbar()}>Click Parent</Button>
+            {/* </Row> */}
 
 
-            <Footer />
+
+            {/* <Footer /> */}
         </>
     );
 
-}
-export default Sign;
+};
 
 
 export function Connexion(props) {
@@ -167,11 +209,9 @@ export function Connexion(props) {
     })
     const [rememberLogin, setRememberLogin] = useState(false);
     const [ErrorConnexionMessage, setErrorConnexionMessage] = useState('');
+    const [userData, setUserData] = useState('');
+
     const errorConnexionRef = useRef();
-
-
-
-
 
     const handleChangeLogin = (e) => {
         e.persist();
@@ -193,7 +233,7 @@ export function Connexion(props) {
         })
             .then((response) => {
                 console.log("LOGGED IN!")
-                console.log(props);
+
                 saveUser(response);
                 // console.log('User profile', response.data.user);
                 // console.log('User token', response.data.jwt);
@@ -227,6 +267,11 @@ export function Connexion(props) {
         //     });
 
     }
+    const signToNavbar = () => {
+        setUserData(userData);
+
+    };
+
 
     return (
         <>
@@ -247,11 +292,12 @@ export function Connexion(props) {
                 <div className="text-center">
                     <p ref={errorConnexionRef} className={ErrorConnexionMessage ? "errorMessage" : "offscreen"} aria-live="assertive">{ErrorConnexionMessage}</p>
 
-                    <Button className='' variant="secondary" type="submit">
+                    <Button className='' onClick={() => signToNavbar()} variant="secondary" type="submit">
                         Se connecter
                     </Button>
                 </div>
             </Form>
+            <Button primary onClick={() => signToNavbar()}>Click Parent</Button>
 
 
         </>
@@ -267,3 +313,7 @@ export function saveUser(response) {
 
     }
 };
+
+// export function signToNavbar() {
+//     setUserData(userData);
+// }
