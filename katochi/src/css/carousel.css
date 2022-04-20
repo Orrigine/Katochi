@@ -1,7 +1,12 @@
-.carou img{
-  height: 500px;
-  height: 100%;
+.carousel-inner{
 }
+
+.carou-img{
+  height: 100%;
+  align-items: center;
+}
+
+
 
 h3 {
   font-size: 60px!important;

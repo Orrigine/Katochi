@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { Container, Row, Col } from "react-bootstrap"
 import Navigation from "../components/Navigation";
 import Carouselle from "../components/Carousel";
 import Footer from "../components/Footer";
@@ -20,7 +21,7 @@ class Acceuil extends Component {
         </div>
 
         <div className="event">
-            <h2>Nos Événements</h2>
+            <h2 className="articles-title">Nos Événements</h2>
             <Carouselle />
         </div>
         <div className="twitch">
