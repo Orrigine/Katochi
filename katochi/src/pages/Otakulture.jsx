@@ -4,13 +4,20 @@ import Footer from "../components/Footer";
 import '../fonts/AdigianaUI.ttf';
 import '../css/accueil.css'
 import { Link } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 class Otakulture extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        };
+    }
+
   render() {
     return (<>
-      <Navigation />
+      <Navigation getUserData={this.props.getUserData}/>
 
       <Container className='centered'>
         <Link to='/'>Revenir sur la page d'accueil</Link>

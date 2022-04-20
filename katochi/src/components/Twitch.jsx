@@ -38,9 +38,9 @@ class Twitch extends Component {
           <h3>Images en cours de chargement...</h3>
         :
           <Container>
-            <img className="imgTwitch" src={"http://localhost:1337" + this.state.twitch.data.attributes.img1.data.attributes.formats.medium.url} alt="image twitch 1"/>
-            <img className="imgTwitch" src={"http://localhost:1337" + this.state.twitch.data.attributes.img2.data.attributes.formats.medium.url} alt="image twitch 2" />
-            <img className="imgTwitch" src={"http://localhost:1337" + this.state.twitch.data.attributes.img3.data.attributes.formats.medium.url} alt="image twitch 3" />
+            <img className="imgTwitch" src={"http://localhost:1337" + this.state.twitch.data.attributes.img1.data.attributes.formats.medium.url} alt="twitch 1"/>
+            <img className="imgTwitch" src={"http://localhost:1337" + this.state.twitch.data.attributes.img2.data.attributes.formats.medium.url} alt="twitch 2" />
+            <img className="imgTwitch" src={"http://localhost:1337" + this.state.twitch.data.attributes.img3.data.attributes.formats.medium.url} alt="twitch 3" />
           </Container>
         }
         <h3 className="twitch-title2">Dernières diffusions</h3>

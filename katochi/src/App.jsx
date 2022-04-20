@@ -14,24 +14,43 @@ import Account from "./pages/Account.jsx";
 import Sign from "./pages/Sign.jsx";
 
 class App extends Component {
-    render(){
-      return(
-      <>
-          <div className="app">
-            <Router>
-                <Routes>
-                  <Route exact path="/" element={<Acceuil />} />
-                  <Route exact path="/events" element={<Events />} />
-                  <Route exact path="/articles" element={<Articles />} />
-                  <Route exact path="/otakulture" element={<Otakulture />} />
-                  <Route exact path="/sign" element={<Sign />} />
-                  <Route exact path="/account" element={<Account />} />
-                </Routes>
-            </Router>
-          </div>
-        </>
-      );
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: []
     }
+  }
+
+  setUserData = (userData) => {
+    console.log(userData);
+    this.setState({ user: userData });
+    console.log(this.state.user);
+  }
+
+  getUserData = () => {
+    console.log('getUserData');
+    return this.state.user;
+
+  }
+
+  render() {
+    return (
+      <>
+        <div className="app">
+          <Router>
+            <Routes>
+              <Route exact path="/" element={<Acceuil />} getUserData={this.getUserData} />
+              <Route exact path="/events" element={<Events />} getUserData={this.getUserData} />
+              <Route exact path="/articles" element={<Articles />} getUserData={this.getUserData} />
+              <Route exact path="/otakulture" element={<Otakulture />} getUserData={this.getUserData} />
+              <Route exact path="/sign" element={<Sign />} setUserData={this.setUserData} getUserData={this.props.getUserData} />
+              <Route exact path="/account" element={<Account />} getUserData={this.getUserData} />
+            </Routes>
+          </Router>
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;
