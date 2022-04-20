@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import '../fonts/AdigianaUI.ttf';
 import '../css/accueil.css'
 import Twitch from "../components/Twitch";
+import ArticleCard from "../components/ArticleCard";
 
 
 class Acceuil extends Component {
@@ -34,6 +35,16 @@ class Acceuil extends Component {
           <Twitch />
         </div>
         <div className="articles">
+          <div >
+            <h2 className="articles-title">articles</h2>
+            <Row>
+            <ArticleCard />
+            <ArticleCard />
+            <ArticleCard />
+            <ArticleCard />
+            </Row>
+          </div>
+          < button className="article-button">afficher plus d'articles</button>
         </div>
         <Footer />
       </div>

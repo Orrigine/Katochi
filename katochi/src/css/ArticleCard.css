@@ -1,0 +1,17 @@
+.Card{
+    background-color: burlywood;
+    padding: 10px 30px 0 30px;
+    margin-bottom: 30px;
+    width: 23%!important;
+    margin-right: 2%;
+    height: 600px;
+}
+
+.card-button{
+    font-size: 30px;
+    border-radius: 0px!important;
+    background-color: white;
+    border-color: black;
+    border-width: 3px;
+
+}
