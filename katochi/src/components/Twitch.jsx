@@ -11,43 +11,10 @@ class Twitch extends Component {
 
   constructor(props) {
     super(props);
-    this.switchimg = '';
-    this.switchvid = '';
     this.state = {
-      vidPositions: {
-        vid1: 'https://www.youtube.com/embed/iik25wqIuFo',
-        vid2: 'https://www.youtube.com/embed/la9vFQ28A8I',
-        vid3: 'https://www.youtube.com/embed/iik27wqIuFo'
-      }
-    }
-  }
-
-  video = (url) => {
-    return <iframe id='1'
-      src={url}
-      frameBorder="0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      title="Vidéo !"
-    />
-  }
-
-  swap = (id, vid) => {
-    this.switchimg = document.getElementById(id).getAttribute('src');
-    document.getElementById(id).setAttribute('src', twitch1);
-    twitch1 = this.switchimg;
-
-    if(id == 2){
-      this.switchvid = this.state.vidPositions.vid2;
-      this.state.vidPositions.vid2 = this.state.vidPositions.vid1;
-      this.state.vidPositions.vid1 = this.switchvid
-      document.getElementById(1).setAttribute('src', this.state.vidPositions.vid1);
-    }
-    else{
-      this.switchvid = this.state.vidPositions.vid3;
-      this.state.vidPositions.vid3 = this.state.vidPositions.vid1;
-      this.state.vidPositions.vid1 = this.switchvid
-      document.getElementById(1).setAttribute('src', this.state.vidPositions.vid1);
+      vid1: 'iik25wqIuFo',
+      vid2: 'U_rWZK_8vUY',
+      vid3: 'TrqFje3KfFc'
     }
   }
 
@@ -70,18 +37,43 @@ class Twitch extends Component {
           <Row>
             <Col lg="6" sm="12">
               <div className="video-responsive" >
-                {this.video(this.state.vidPositions.vid1)}
+                  <iframe
+                  src={'https://www.youtube.com/embed/' + this.state.vid1}
+                  frameBorder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Vidéo !"
+                />
               </div>
             </Col>
 
             <Col lg="6" sm="12">
               <Row>
                 <Col>
-                <img className="imgTwitch" id="2" src={twitch2} alt="img twitch 2" onClick={() => this.swap("2", this.state.vidPositions.vid2)}/>
-
+                    <img className="imgTwitch"
+                    src={'https://img.youtube.com/vi/' + this.state.vid2 + '/default.jpg'}
+                    alt="video 2" 
+                    onClick={() => {
+                      let temp = this.state.vid2;
+                      this.setState({
+                        vid2: this.state.vid1,
+                        vid1: temp
+                      })
+                    }}
+                  />
                 </Col>
                 <Col>
-                <img className="imgTwitch" id="3" src={twitch3} alt="img twitch 3" onClick={() => this.swap("3", this.state.vidPositions.vid3)}/>
+                  <img className="imgTwitch"
+                    src={'https://img.youtube.com/vi/' + this.state.vid3 + '/default.jpg'}
+                    alt="video 3" 
+                    onClick={() => {
+                      let temp = this.state.vid3;
+                      this.setState({
+                        vid3: this.state.vid1,
+                        vid1: temp
+                      })
+                    }}
+                  />
                 </Col>
               </Row>
               <Row>

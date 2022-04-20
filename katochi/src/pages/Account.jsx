@@ -11,31 +11,36 @@ class Account extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      connected: false
+      connected: true,
+      admin: true
     }
   }
 
   render() {
-    return (<>
-      <Navigation />
-      
-      {!this.state.connected ?
+
+    if (!this.state.connected) {
+      return (<>
+        <Navigation />
         <Container className='centered'>
           <p>Vous n'êtes pas connecté !</p>
-          <Link to='/sign'>Connectez-vous ici</Link>
+          <Link to='/sign'>Connectez-vous</Link> ou <Link to='/'>retournez sur la page d'accueil</Link>
         </Container>
-      :   
-        <Row>
-          <Col sm='12' lg='5'>
-            <p>Profile picture</p>
-            {/* Put image import from db */}
-          </Col>
-          <Col sm='12' lg='7'>
-            <p>Stats</p>
-            {/* Put stats import from db */}
-          </Col>
-        </Row>
-      }
+        <Footer />
+      </>)
+    }
+
+    return (<>
+      <Navigation />
+      <Row className='justify-content-md-center'>
+        <Col sm='12' lg='5'>
+          <p>Profile picture</p>
+          {/* Put image import from db */}
+        </Col>
+        <Col sm='12' lg='7'>
+          <p>Stats</p>
+          {/* Put stats import from db */}
+        </Col>
+      </Row>
 
       <Container className='centered'>
         <Link to='/'>Revenir sur la page d'accueil</Link>

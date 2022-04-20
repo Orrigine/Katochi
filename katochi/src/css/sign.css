@@ -30,6 +30,12 @@ button {
     border: 3px solid green;
 }
 
+.errorMessage {
+    color: red;
+    font-size: 1.2em !important;
+    text-align: center;
+}
+
 .rightt {
     margin-top: 100px !important;
     border: 3px solid green;

@@ -45,12 +45,6 @@
     "address": {
       "type": "string"
     },
-    "users": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::user-table.user-table",
-      "inversedBy": "events"
-    },
     "image1": {
       "type": "media",
       "multiple": false,
@@ -105,6 +99,12 @@
         "videos",
         "audios"
       ]
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "events"
     }
   }
 }

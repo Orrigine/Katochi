@@ -41,12 +41,6 @@
       "type": "boolean",
       "default": false
     },
-    "events": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event-table.event-table",
-      "mappedBy": "users"
-    },
     "profilePicture": {
       "type": "media",
       "multiple": false,
