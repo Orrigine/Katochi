@@ -1,5 +1,5 @@
 
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap"
 import Navigation from "../components/Navigation";
 import Carouselle from "../components/Carousel";
@@ -8,6 +8,8 @@ import '../fonts/AdigianaUI.ttf';
 import '../css/accueil.css'
 import Twitch from "../components/Twitch";
 import ArticleCard from "../components/ArticleCard";
+
+
 
 
 
@@ -22,10 +24,11 @@ class Acceuil extends Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log("props", this.props);
+        // console.log(ThemeContext);
         return (
             <div className="acceuil">
-                <Navigation getUserData={this.props.getUserData} />
+                <Navigation getTheme={() => this.getTheme} theme={this.props.theme} toggleTheme={() => this.props.toggleTheme}  />
                 <div className="header">
                     <div className="logo">
 
@@ -40,18 +43,18 @@ class Acceuil extends Component {
                     <Twitch />
                 </div>
                 <div className="articles">
-                   <div >
-            <h2 className="articles-title">articles</h2>
-            <Row>
-            <ArticleCard />
-            <ArticleCard />
-            <ArticleCard />
-            <ArticleCard />
-            </Row>
-          </div>
-          <div className="button-div">
-          < button className="article-button">afficher plus d'articles</button>
-          </div>
+                    <div >
+                        <h2 className="articles-title">articles</h2>
+                        <Row>
+                            <ArticleCard />
+                            <ArticleCard />
+                            <ArticleCard />
+                            <ArticleCard />
+                        </Row>
+                    </div>
+                    <div className="button-div">
+                        <button className="article-button">afficher plus d'articles</button>
+                    </div>
                 </div>
                 <Footer />
             </div>

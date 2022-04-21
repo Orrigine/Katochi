@@ -41,6 +41,12 @@ button {
     border: 3px solid green;
 }
 
-footer {
-    margin-top: 48vh;
-}
+.footer-test{
+    margin-top: 1rem;
+    /* padding: 1rem; */
+    /* background-color: rgb(235, 195, 64); */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }

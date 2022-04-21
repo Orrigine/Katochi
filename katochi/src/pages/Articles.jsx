@@ -8,24 +8,24 @@ import { Container } from "react-bootstrap";
 
 class Articles extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+    constructor(props) {
+        super(props);
+        this.state = {
 
-    };
-  }
+        };
+    }
 
-render() {
-  return (<>
-    <Navigation getUserData={this.props.getUserData}/>
+    render() {
+        return (<>
+            <Navigation getTheme={() => this.getTheme} theme={this.props.theme} toggleTheme={() => this.props.toggleTheme()}  />
 
-    <Container className='centered'>
-      <Link to='/'>Revenir sur la page d'accueil</Link>
-    </Container>
+            <Container className='centered'>
+                <Link to='/'>Revenir sur la page d'accueil</Link>
+            </Container>
 
-    <Footer />
-  </>);
-}
+            <Footer />
+        </>);
+    }
 }
 
 export default Articles;
