@@ -8,12 +8,12 @@ import { Col, Row, Container } from "react-bootstrap"
 
 class Articles extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+    constructor(props) {
+        super(props);
+        this.state = {
 
-    };
-  }
+        };
+    }
 
 render() {
   return (<>
@@ -64,7 +64,6 @@ render() {
     </div>
     <Footer />
   </>);
-}
 }
 
 export default Articles;

@@ -9,7 +9,6 @@ class ArticleCard extends Component {
     render() {
         return(
             <Col className="Card">
-                
                     <img className="img-articleCard" src="" alt="placeholder" /> 
                     <h2>title article Card</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt

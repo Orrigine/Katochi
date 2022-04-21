@@ -1,0 +1,21 @@
+ div.account {
+    color:white !important;
+}
+
+p.point-fields {
+    font-size: 1.2em;
+    color: black !important;
+}
+
+h3.points {
+    font-size: 2em !important;
+    text-shadow: 1px 1px 10px black;
+}
+
+h2.username {
+    
+    font-size: 3em !important;
+     text-shadow: 0px 0px 10px black; 
+    /* -webkit-text-stroke: 2px #000;  */
+
+} 

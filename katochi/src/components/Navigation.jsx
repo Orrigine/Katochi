@@ -3,11 +3,13 @@ import { Link } from "react-router-dom"
 import { Navbar } from "react-bootstrap"
 import { Component } from "react";
 import { Row, Col } from "react-bootstrap";
+import { ThemeButton } from "../App";
 
 
 import '../fonts/AdigianaUI.ttf'
 import Logo from "../img/logo.png";
 import DarkMoon from "../img/dark_moon.png";
+import Sun from "../img/sun.png";
 import '../css/App.css';
 import '../css/navbar.css';
 
@@ -15,18 +17,24 @@ class Navigation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: []
+            loggedIn: false,
+            userData: {}
         }
     }
 
-    async componentDidMount() {
-        this.setState({
-            user: this.props.getUserData()
-        })
+    componentDidMount = () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        // const token = localStorage.getItem("token");
+        if (user) {
+            this.setState({
+                loggedIn: true,
+                userData: user
+            })
+        }
     }
+
     render() {
-        // console.log(this.props.getUserData())
-        console.log("user",this.state.user)
+        // console.log("children receiving theme",[this.props.theme])
         return (
             <>
                 <Row>
@@ -37,7 +45,8 @@ class Navigation extends Component {
                             {/* <Nav className="me-auto"> */}
                             <Col className="vert left" lg={4}>
                                 <Link to="/"><img src={Logo} height="50" className="" alt="logo" /></Link>
-                                <a className="moon"><img src={DarkMoon} height="30" className="" alt="logo" /></a>
+                                <ThemeButton/>
+                                <button onClick={() => this.props.toggleTheme()} className="moon"><img src={Sun} height="30" className="" alt="logo" /></button>
 
                             </Col>
 
@@ -48,11 +57,10 @@ class Navigation extends Component {
                             </Col>
 
                             <Col className="right" lg={4}>
-
-                                {this.state.user === [] ?
-                                    <Link className="align-items-center" id="navlink" to="/sign">Se connecter</Link>
+                                {this.state.loggedIn ?
+                                <Link className="align-items-center" id="navlink" to="/account">{this.state.userData.username}</Link>
                                 :
-                                    <Link className="align-items-center" id="navlink" to="/account">COMPTE: {this.state.user}</Link>
+                                <Link className="align-items-center" id="navlink" to="/sign">Se connecter</Link>
                                 }
                             </Col>
                             {/* </Nav> */}

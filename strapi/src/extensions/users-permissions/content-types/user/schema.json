@@ -84,13 +84,16 @@
       ]
     },
     "points": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "otakultureWins": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "achievementNumber": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "lastName": {
       "type": "string"
