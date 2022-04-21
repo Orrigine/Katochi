@@ -1,5 +1,4 @@
 .Card{
-    background-color: burlywood;
     margin-bottom: 30px;
     margin-right: 1%;
     margin-left: 1%;
@@ -22,8 +21,4 @@
 .button-div{
     display: flex;
     justify-content: center;
-}
-.text-card{
-    border-width: 10px;
-    border-color: black;
 }
