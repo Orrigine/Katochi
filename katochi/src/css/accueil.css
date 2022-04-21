@@ -24,7 +24,10 @@ body {
     border-color: black;
     border-width: 3px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c350752b0b9a7a92eaf289bd2644f8c7dca3bb75
 .header {
     height: 100vh;
     background-image: url("../img/background_logo.png");

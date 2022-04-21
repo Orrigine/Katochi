@@ -11,7 +11,11 @@ class ArticleCard extends Component {
         return(
             <Col className="Card">
                 
+<<<<<<< HEAD
                     <img className="img-articleCard" src="" alt="placeholder" /> 
+=======
+                    <img className="img-articleCard" src={""} alt="placeholder" /> 
+>>>>>>> c350752b0b9a7a92eaf289bd2644f8c7dca3bb75
                     <h2>title article Card</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco

@@ -17,7 +17,7 @@ class Otakulture extends Component {
 
   render() {
     return (<>
-      <Navigation getUserData={this.props.getUserData}/>
+      <Navigation getTheme={() => this.getTheme} toggleTheme={() => this.props.toggleTheme()} />
 
       <Container className='centered'>
         <Link to='/'>Revenir sur la page d'accueil</Link>
