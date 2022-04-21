@@ -1,6 +1,7 @@
 html, body {
     height: 100vh;
     background-image: linear-gradient(var(--yellow1), var(--yellow3), #eeeeee, white);
+    background-repeat: no-repeat;
 }
 form {
     font-family: ArialRound;

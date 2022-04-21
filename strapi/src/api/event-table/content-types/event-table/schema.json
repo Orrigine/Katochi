@@ -39,9 +39,6 @@
     "text4": {
       "type": "string"
     },
-    "date": {
-      "type": "datetime"
-    },
     "address": {
       "type": "string"
     },
@@ -105,6 +102,9 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "events"
+    },
+    "date": {
+      "type": "date"
     }
   }
 }
