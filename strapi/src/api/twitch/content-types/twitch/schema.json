@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "twitches",
+  "info": {
+    "singularName": "twitch",
+    "pluralName": "twitches",
+    "displayName": "twitch",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "img1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "img2": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "img3": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "vid1": {
+      "type": "string"
+    },
+    "vid2": {
+      "type": "string"
+    },
+    "vid3": {
+      "type": "string"
+    }
+  }
+}

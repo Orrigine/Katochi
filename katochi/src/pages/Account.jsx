@@ -20,7 +20,7 @@ class Account extends Component {
 
     if (!this.state.connected) {
       return (<>
-        <Navigation />
+        <Navigation getUserData={this.props.getUserData} />
         <Container className='centered'>
           <p>Vous n'êtes pas connecté !</p>
           <Link to='/sign'>Connectez-vous</Link> ou <Link to='/'>retournez sur la page d'accueil</Link>
@@ -30,7 +30,7 @@ class Account extends Component {
     }
 
     return (<>
-      <Navigation />
+      <Navigation getUserData={this.props.getUserData} />
       <Row className='justify-content-md-center'>
         <Col sm='12' lg='5'>
           <p>Profile picture</p>
