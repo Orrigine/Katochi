@@ -1,0 +1,118 @@
+:root{
+    --yellow1: #ffe000;
+    --yellow2: #FCE659;
+    --yellow3: #fbec82;
+  }
+  
+  [data-theme='dark'] {
+      --background: black;
+      --background-secondary: var(--yellow1);
+      --text-primary: white;
+      --text-secondary: black;
+      --background-image-main: url('../img/dark_background_logo.png');
+      --background-image-twitch: url('../img/Background-twitch-dark.png');
+
+      
+    }
+    [data-theme='light'] {
+        --background: white;
+        --background-secondary: var(--yellow1);
+        --text-primary: black;
+        --text-secondary: white;
+        --background-image-main: url('../img/light_background_logo.png');
+        --background-image-twitch: url('../img/Background-twitch-light.png');
+
+    }
+  
+    #nav {
+      color: var(--text-primary) ;
+      background-color: var(--background) !important;
+      /* font-size: large; */
+      /* font-weight: bold; */
+      /* padding: 20px; */
+      /* height: calc(100vh - 40px); */
+      transition: all .7s;
+    }
+    /* button {
+      color: var(--text-primary);
+      background-color: var(--background);
+      border: 2px var(--text-primary) solid;
+      float: right;
+      transition: all .5s;
+    } */
+    
+    
+  #navlink{
+    display: flex;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  #navlink:hover{
+    color: var(--yellow1);
+  }
+  
+#logo {
+    background-image: var(--background-image-main);
+}
+
+#twitch-back {
+    background-image :var(--background-image-twitch);
+}
+  .event .event-title h2 {
+    font-size: 90px;
+    font-weight: bold;
+    color: var(--yellow1);
+    text-align: center;
+    -webkit-text-stroke: 0.5px black!important;
+    filter: drop-shadow(8px 2px 2px black);
+    margin-bottom: 0;
+  }
+
+  
+  #articles{
+    background-color: var(--background);
+}
+
+#Card {
+    color :var(--text-primary)
+}
+
+#CardButton {
+    background-color: var(--text-secondary);
+    border-radius: 15px!important;
+    border: 1px solid var(--text-primary);
+}
+
+
+
+#card-button-insider {
+    text-decoration: none !important;
+    background-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+#article-button {
+    font-size: 40px;
+    border-radius: 0px!important;
+    background-color: var(--text-secondary);
+    border-radius: 15px!important;
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+    border-width: 3px;
+}
+
+#footer{
+    //   margin-top: 1rem;
+    //   padding: 1rem;
+    color: var(--text-secondary);
+       background-color: var(--background-secondary); 
+    //   position: fixed;
+    //   bottom: 0;
+    //   left: 0;
+    //   width: 100%;
+    }
+
+    #footer-links {
+        color: var(--text-secondary);
+        text-decoration: none;
+    }

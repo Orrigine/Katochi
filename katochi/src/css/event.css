@@ -45,6 +45,24 @@ and (max-width: 1332px)
 }
 
 @media screen 
+and (min-width:1330px)
+and (max-width: 1920px)
+{
+  .event-text {
+    font-size: 25px!important;
+  }
+}
+
+@media screen 
+and (min-width:1436px)
+and (max-width: 1920px)
+{
+  .event-text2 {
+    font-size: 25px!important;
+  }
+}
+
+@media screen 
 and (min-width: 992px)
 and (max-width: 1213px)
 {
@@ -319,6 +337,17 @@ and (max-width: 1775px)
     font-size: 25px!important;
   }
 }
+
+@media screen 
+and (min-width: 1776px)
+{
+  .event-text3{
+    font-size: 25px!important;
+  }
+  .event-text4{
+    font-size: 25px!important;
+  }
+}
 /* End responsive to help bootstrap */
 
 
@@ -345,6 +374,11 @@ and (max-width: 1775px)
 body {
   background-color: white!important;
 }
+
+p{
+  padding-bottom: 0px!important;
+}
+
 .banner {
   margin-top: 50px;
   width: 100%;

@@ -24,39 +24,42 @@ class Acceuil extends Component {
     }
 
     render() {
-        console.log("props", this.props);
+        // console.log("props", this.props);
         // console.log(ThemeContext);
         return (
             <div className="acceuil">
-                <Navigation getTheme={() => this.getTheme} theme={this.props.theme} toggleTheme={() => this.props.toggleTheme}  />
-                <div className="header">
-                    <div className="logo">
+                <Navigation switchTheme={() => this.props.switchTheme()} theme={this.props.theme} />
+                <div id="logo" className="header">
+                    <div  className="logo">
 
                     </div>
                 </div>
 
-                <div className="text-center event">
-                    <h2>Nos Événements</h2>
+                <div className="text-center ">
+                    <h2 className="__title-event" >Nos Événements</h2>
                     <Carouselle />
                 </div>
-                <div className="twitch">
+                <div id="twitch-back" className="twitch">
                     <Twitch />
                 </div>
-                <div className="articles">
+                <div id="articles" className="articles">
                     <div >
                         <h2 className="articles-title">articles</h2>
                         <Row>
-                            <ArticleCard />
-                            <ArticleCard />
-                            <ArticleCard />
-                            <ArticleCard />
+                            <ArticleCard articleId='1' />
+                            <ArticleCard articleId='2' />
+                            <ArticleCard articleId='1' />
+                            <ArticleCard articleId='2' />
                         </Row>
                     </div>
                     <div className="button-div">
-                        <button className="article-button">afficher plus d'articles</button>
+                        <button id='article-button' className="article-button">afficher plus d'articles</button>
                     </div>
                 </div>
+                {/* <div id="footer"> */}
                 <Footer />
+                {/* </div> */}
+
             </div>
         );
     }

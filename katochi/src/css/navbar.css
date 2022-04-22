@@ -2,16 +2,14 @@ nav {
     font-family: "AdigianaToybox";
     border-bottom: 1px solid;
     font-size: 1.5em;
-    background-color: white;
+    
 }
 
 a:hover{
     transition-duration: 0.3s;
 }
 
-.vert {
-    
-}
+
 
 .moon {
     padding-left: 2.5%;
@@ -22,7 +20,6 @@ a:hover{
 }
 
 .mid {
-    border: 3px solid green;
     display: flex;
     justify-content: space-between;
 }

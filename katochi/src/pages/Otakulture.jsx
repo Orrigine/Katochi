@@ -15,17 +15,17 @@ class Otakulture extends Component {
         };
     }
 
-  render() {
-    return (<>
-      <Navigation getTheme={() => this.getTheme} toggleTheme={() => this.props.toggleTheme()} />
+    render() {
+        return (<>
+            <Navigation switchTheme={() => this.props.switchTheme()} />
 
-      <Container className='centered'>
-        <Link to='/'>Revenir sur la page d'accueil</Link>
-      </Container>
+            <Container className='centered'>
+                <Link to='/'>Revenir sur la page d'accueil</Link>
+            </Container>
 
-      <Footer />
-    </>);
-  }
+            <Footer />
+        </>);
+    }
 }
 
 export default Otakulture;

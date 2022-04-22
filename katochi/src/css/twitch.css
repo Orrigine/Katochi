@@ -1,9 +1,10 @@
 .twitch{
   padding-left: 50px;
   padding-right: 50px;
-  background-image: url(../img/Background-twitch.png);
-  background-repeat: repeat;
+  /* background-image: url(../img/Background-twitch.png); */
+  background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 25px!important;
 }
 
 .twitch-title1{

@@ -11,59 +11,59 @@ class Articles extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            articles: [],
+            loading: true
         };
     }
 
-render() {
-  return (<>
-    <Navigation getUserData={this.props.getUserData}/>
-    <div className="article">
-      <Row>
-        <Col lg={4} md={4} xs={4}>
-          <img className="img-articleCard" src="" alt="placeholder" /> 
-        </Col>
-        <Col lg={8} md={8} xs={8}>
-            <h2 className="article-title">title article Card</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </Col>
-      </Row>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-      Excepteur sint occaecat cupidatat non proident,
-      sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-      Excepteur sint occaecat cupidatat non proident,
-      sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    componentDidMount = async () => {
+        const response = await fetch('http://localhost:1337/api/article-tables?populate=*', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        const articles = await response.json();
 
-      <Row>
-        <Col lg={4} md={4} xs={4}>
-          <p>ecrit par quelqu'un</p>
-        </Col>
-        <Col lg={4} md={4} xs={4}>
-        <div className="button-div">
-            <button type="button" className="card-button" to><Link to={"/articles"}>Revenir sur la page d'accueil</Link></button>
-        </div>
-        </Col>
-          
-        <Col lg={4} md={4} xs={4}>
-          <p className="post-date">date de parution</p>
-        </Col>
-      </Row>
-    </div>
-    <Footer />
-  </>);
+        this.setState({
+            articles: articles.data,
+            loading: false
+        });
+    }
+
+    render() {
+
+        if (this.state.loading) {
+            return (
+                <>
+                    <Navigation switchTheme={() => this.props.switchTheme} />
+                    <p className="centered"> Articles en chargement... </p>
+                    <Footer />
+                </>
+            )
+        }
+
+        this.state.articles.sort((a, b) => (a.attributes.date < b.attributes.date) ? 1 : ((b.attributes.date < a.attributes.date ? -1 : 0)))
+        
+        return (<>
+            <Navigation />
+            <Row className='justify-content-md-center'>
+                {this.state.articles.map((data) =>
+                    <Col key={data.id} id={data.id} sm="12" lg="8" className="article">
+                        <img className="img-articleCard" src={"http://localhost:1337" + data.attributes.image.data.attributes.url} alt={data.attributes.image.data.attributes.name} />
+                        <h2 >{data.attributes.title}</h2>
+                        <p>{data.attributes.text}</p>
+                        <h5>
+                            Par {data.attributes.author},
+                            le {data.attributes.date}
+                        </h5>
+                    </Col>
+                )}
+            </Row>
+            <Footer />
+        </>);
+    }
 }
 
 export default Articles;

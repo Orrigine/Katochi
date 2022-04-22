@@ -1,26 +1,64 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Container, Row, Col } from "react-bootstrap"
-import '../css/App.css';
+import '../sass/App.scss';
 import '../css/ArticleCard.css';
 import { Component } from "react";
 
 class ArticleCard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            article: {},
+            loading: true
+        };
+    }
+
+    componentDidMount = async () => {
+        const response = await fetch('http://localhost:1337/api/article-tables/' + this.props.articleId + '?populate=*', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        const article = await response.json();
+
+        this.setState({
+            article: article.data,
+            loading: false
+        });
+    }
+
     render() {
-        return(
-            <Col className="Card">
-                    <img className="img-articleCard" src="" alt="placeholder" /> 
-                    <h2>title article Card</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    
+
+        if (this.state.loading) {
+            return (
+                <Col className="Card">
+                    <h2>Article En cours de chargement...</h2>
+                    <p>...</p>
+
                     <div className="button-div">
-                        <button type="button" className="card-button" to><Link to={"/articles"}>Lire l'article</Link></button>
+                        <Link to={"/articles"}><button type="button" className="card-button">Lire l'article</button></Link>
                     </div>
+                </Col>
+            )
+        }
+
+        return (
+            <Col id="Card" className="Card">
+                <img className="img-articleCard" src={"http://localhost:1337" + this.state.article.attributes.image.data.attributes.url} alt="placeholder" />
+                <h2>{this.state.article.attributes.title}</h2>
+                <p>{this.state.article.attributes.text}</p>
+                <h5>
+                    Par {this.state.article.attributes.author},
+                    le {this.state.article.attributes.date}
+                </h5>
+                <Link to={"/articles#"+this.props.articleId}>
+                <div id="CardButton" className="button-div">
+                    <div id="card-button-insider" type="button" className="card-button">Lire l'article</div>
+                </div>
+                </Link>
             </Col>
         )
     }

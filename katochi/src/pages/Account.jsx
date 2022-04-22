@@ -16,33 +16,18 @@ class Account extends Component {
         }
     }
 
-    async componentDidMount() {
+    componentDidMount = () => {
         const user = JSON.parse(localStorage.getItem("user"));
-        // const token = localStorage.getItem("token");
         if (user) {
             this.setState({
                 loggedIn: true,
                 userData: user
             })
         }
-
-        const response = await fetch('http://localhost:1337/api/twitches/1?populate=*', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        });
-        const twitch = await response.json();
-
-
-
-
     }
 
     render() {
-        console.log("userdara", this.state.userData)
-
+        console.log("points",this.state.userData.points)
         if (!this.state.loggedIn) {
             return (<>
                 <Navigation />
@@ -56,24 +41,24 @@ class Account extends Component {
 
         return (<>
             <Navigation />
-            <div class="account">
+            <div className="account">
 
                 <Row className='justify-content-md-center'>
                     <Col className="text-center" sm='11' lg='4'>
                         <h2 className="username">{this.state.userData.username}</h2>
-                        {/* Put image import from db */}
+                        {/* Put image import from db because valentin do not pull image with his fucking axios call */}
                     </Col>
                     <Col className="insert bar" sm='1' lg='1'></Col>
                     <Col className="" sm='11' lg='5'>
                         <Row>
-                            <Col sm="6"><h3 className='points text-left'>Points</h3></Col>
-                            <Col sm="6"><p className="point-fields">{this.state.userData.points}</p></Col>
+                            <Col sm="9"><h3 className='points text-left'>Points</h3></Col>
+                            <Col sm="3"><p className="point-fields">{this.state.userData.points}</p></Col>
 
-                            <Col sm="6"><h3 className='points text-left'>Partie(s) remportée(s)</h3></Col>
-                            <Col sm="6"><p className="point-fields">{this.state.userData.otakultureWins}</p></Col>
+                            <Col sm="9"><h3 className='points text-left'>Partie(s) remportée(s)</h3></Col>
+                            <Col sm="3"><p className="point-fields">{this.state.userData.otakultureWins}</p></Col>
 
-                            <Col sm="6"><h3 className='points text-left'>Succès</h3></Col>
-                            <Col sm="6"><p className="point-fields">{this.state.userData.achievementNumber}</p></Col>
+                            <Col sm="9"><h3 className='points text-left'>Succès</h3></Col>
+                            <Col sm="3"><p className="point-fields">{this.state.userData.achievementNumber}</p></Col>
                         </Row>
                     </Col>
                 </Row>
@@ -102,10 +87,10 @@ class Account extends Component {
                 </Row>
             </div>
 
-<div class="footer-test">
+            <div class="footer-test">
 
-            <Footer />
-</div>
+                <Footer />
+            </div>
         </>);
     }
 }

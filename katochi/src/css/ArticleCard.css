@@ -1,8 +1,11 @@
+
+
 .Card{
     margin-bottom: 30px;
     margin-right: 1%;
     margin-left: 1%;
     height: calc(width * 2.5);
+    font-family: "ArialRound";
 }
 
 .card-button{

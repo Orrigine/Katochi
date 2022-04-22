@@ -4,11 +4,42 @@
   --yellow3: #fbec82;
 }
 
+[data-theme='dark'] {
+    --background: black;
+    --text-primary: white;
+    --text-secondary: grey;
+    
+  }
+[data-theme='light'] {
+    --background: white;
+    --text-primary: black;
+    --text-secondary: grey;
 
+    
+  }
+  
 
+  nav {
+    color: var(--text-primary) ;
+    background-color: var(--background) !important;
+    /* font-size: large; */
+    /* font-weight: bold; */
+    /* padding: 20px; */
+    /* height: calc(100vh - 40px); */
+    transition: all .5s;
+  }
+  /* button {
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 2px var(--text-primary) solid;
+    float: right;
+    transition: all .5s;
+  } */
+  
+  
 #navlink{
   display: flex;
-  color: black;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: bold;
 }
@@ -26,13 +57,13 @@
   margin-bottom: 0;
 }
 
-nav {
+/* nav {
     background-color: white !important;
-}
+} */
 
 footer{
   background-color: var(--yellow1);
-  color: white;
+  color: var(--background);
   font-family: "AdigianaToybox";
   
 }

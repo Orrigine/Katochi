@@ -2,16 +2,12 @@
     padding: 50px 0px 50px 0px;
 }
 
-.article{
-    background-color: white;
-}
-
-.article{
-    background-color: white;
-}
-
 .post-date{
     text-align: right;
+}
+
+.article{
+    margin-top: 5rem;
 }
 
 p{

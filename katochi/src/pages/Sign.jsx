@@ -24,7 +24,7 @@ class Sign extends Component {
         return (
 
             <>
-                <Navigation getTheme={() => this.getTheme} toggleTheme={() => this.props.toggleTheme()} />
+                <Navigation switchTheme={() => this.props.switchTheme()} />
 
                 <Row>
                     <Col className="leftt" lg={{ span: 3, offset: 2 }}>
@@ -232,7 +232,6 @@ export function Connexion(props) {
                     </Button>
                 </div>
             </Form>
-            <Button primary="true" >Click Parent</Button>
         </>
     )
 
