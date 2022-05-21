@@ -41,11 +41,12 @@ class Events extends Component {
         if (this.state.events.data) {
             nextEvents = this.state.events.data.filter(
                 event => Date.parse(event.attributes.date) >= Date.now()
-            )
+                )
+                console.log(nextEvents)
         }
 
         return (<>
-            <Navigation switchTheme={() => this.props.switchTheme()} />
+            <Navigation/>
 
             <Row className="justify-content-md-center">
                 {this.state.loading === true ?
@@ -53,9 +54,10 @@ class Events extends Component {
                         <p className='center'>Les données sont en cours de chargement...</p>
                     </Col>
                     : // else
-                    nextEvents === [] ?
-                        <Col className='center'>
-                            <p>Aucun événement à venir.</p>
+                    nextEvents.length === 0 ?
+                    <Col className='center'>
+                            <h2>Aucun événement à venir.</h2>
+                            {/* <>{console.log("pas d'événements")}</> */}
                         </Col>
                         : // else
                         <>
@@ -65,7 +67,7 @@ class Events extends Component {
                                     <img className="banner" src={"http://localhost:1337" + data.attributes.previewImage.data.attributes.url} alt="banner" />
                                     <Row>
                                         <Col className="inscription" lg={{ span: 4, offset: 4 }} md={{ span: 4, offset: 4 }} sm={{ span: 4, offset: 4 }} xs={{ span: 4, offset: 4 }}>
-                                            <Button className='btn' size="lg">
+                                            <Button className='bttn' size="lg">
                                                 S'inscrire !
                                             </Button>
                                         </Col>
