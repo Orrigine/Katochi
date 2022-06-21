@@ -41,7 +41,7 @@ class Account extends Component {
 
         return (<>
             <Navigation />
-            <div className="account">
+            <div id="account" className="account">
 
                 <Row className='justify-content-md-center'>
                     <Col className="text-center" sm='11' lg='4'>

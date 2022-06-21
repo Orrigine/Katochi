@@ -139,9 +139,6 @@ export function Register(props) {
                 <Form.Group className="mb-3" controlId="5">
                     <Form.Control onChange={(e) => handleChange(e)} value={userRegisterInfo.password} name="password" type="password" placeholder="Mot de passe" />
                 </Form.Group>
-                <Form.Group className="checkbox mb-3" controlId="formBasicCheckbox1">
-                    <Form.Check onChange={(e) => handleChange(e)} checked={rememberRegister} name="checkbox" type="checkbox" label="Se souvenir de moi" />
-                </Form.Group>
                 <div className="text-center">
                     <p ref={errorRegisterRef} className={ErrorRegisterMessage ? "errorMessage" : "offscreen"} aria-live="assertive">{ErrorRegisterMessage}</p>
                     <Button className='' variant="secondary" type="submit">
@@ -222,9 +219,9 @@ export function Connexion(props) {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Control onChange={(e) => handleChangeLogin(e)} value={userConnexionInfo.password} name="password" type="password" placeholder="Mot de passe" />
                 </Form.Group>
-                <Form.Group className="checkbox mb-3" controlId="formBasicCheckbox2">
+                {/* <Form.Group className="checkbox mb-3" controlId="formBasicCheckbox2">
                     <Form.Check onChange={(e) => handleChangeLogin(e)} checked={rememberLogin} type="checkbox" label="Se souvenir de moi" />
-                </Form.Group>
+                </Form.Group> */}
                 <div className="text-center">
                     <p ref={errorConnexionRef} className={ErrorConnexionMessage ? "errorMessage" : "offscreen"} aria-live="assertive">{ErrorConnexionMessage}</p>
                     <Button variant="secondary" type="submit">

@@ -27,7 +27,7 @@ class Footer extends Component {
                                 <a id="footer-links" className="redirect" target="_blank" href="https://discord.gg/gSugRjcTeJ" rel="noreferrer"><span className="links"><FaDiscord className='logo' />KATOCHI</span></a>
                             </Col>
                             <Col lg={3} md={3} xs={3}>
-                                <a id="footer-links" className="redirect" target="_blank" href="/" rel="noreferrer"><span className="links"><FaYoutube className='logo' />KATOCHI</span></a>
+                                <a id="footer-links" className="redirect" target="_blank" href="https://www.youtube.com/channel/UC497fgLqYlbXj1CT8tQb2Sg" rel="noreferrer"><span className="links"><FaYoutube className='logo' />KATOCHI</span></a>
                             </Col>
                         </Row>
                         <Row>

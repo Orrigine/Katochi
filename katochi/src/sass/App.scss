@@ -4,26 +4,41 @@
     --yellow3: #fbec82;
   }
   
-  [data-theme='dark'] {
+  [data-theme="dark"] {
+    transition: all .7s;
       --background: black;
       --background-secondary: var(--yellow1);
       --text-primary: white;
       --text-secondary: black;
       --background-image-main: url('../img/dark_background_logo.png');
       --background-image-twitch: url('../img/Background-twitch-dark.png');
-
+      --background-linear: black;
+      
+      
       
     }
-    [data-theme='light'] {
+    [data-theme="light"] {
+        transition: all .7s;
         --background: white;
         --background-secondary: var(--yellow1);
         --text-primary: black;
         --text-secondary: white;
         --background-image-main: url('../img/light_background_logo.png');
         --background-image-twitch: url('../img/Background-twitch-light.png');
+        --background-linear-: linear-gradient(var(--yellow1), var(--yellow3), white);
 
     }
   
+#app {
+    // background-color: var(--background-linear);
+    background-image: var(--background-linear);
+}
+#account{
+    // background-color: var(--background-linear);
+    background-image: var(--background-linear);
+
+}
+
     #nav {
       color: var(--text-primary) ;
       background-color: var(--background) !important;
@@ -47,17 +62,25 @@
     color: var(--text-primary);
     text-decoration: none;
     font-weight: bold;
+          transition: all .7s;
+
   }
   #navlink:hover{
     color: var(--yellow1);
+          transition: all .7s;
+
   }
   
 #logo {
     background-image: var(--background-image-main);
+          transition: all .7s;
+
 }
 
 #twitch-back {
     background-image :var(--background-image-twitch);
+          transition: all .7s;
+
 }
   .event .event-title h2 {
     font-size: 90px;
@@ -67,21 +90,29 @@
     -webkit-text-stroke: 0.5px black!important;
     filter: drop-shadow(8px 2px 2px black);
     margin-bottom: 0;
+          transition: all .7s;
+
   }
 
   
   #articles{
     background-color: var(--background);
+          transition: all .7s;
+
 }
 
 #Card {
-    color :var(--text-primary)
+    color :var(--text-primary);
+          transition: all .7s;
+
 }
 
 #CardButton {
     background-color: var(--text-secondary);
     border-radius: 15px!important;
     border: 1px solid var(--text-primary);
+          transition: all .7s;
+
 }
 
 
@@ -90,6 +121,8 @@
     text-decoration: none !important;
     background-color: var(--text-secondary);
     color: var(--text-primary);
+          transition: all .7s;
+
 }
 #article-button {
     font-size: 40px;
@@ -99,6 +132,8 @@
     border-color: var(--text-primary);
     color: var(--text-primary);
     border-width: 3px;
+          transition: all .7s;
+
 }
 
 #footer{
@@ -106,6 +141,8 @@
     //   padding: 1rem;
     color: var(--text-secondary);
        background-color: var(--background-secondary); 
+             transition: all .7s;
+
     //   position: fixed;
     //   bottom: 0;
     //   left: 0;
@@ -115,4 +152,6 @@
     #footer-links {
         color: var(--text-secondary);
         text-decoration: none;
+              transition: all .7s;
+
     }
