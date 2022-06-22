@@ -9,10 +9,10 @@ const ThemeSwitcher = () => {
   const isLight = theme === "light";
 
   useEffect(() => {
-    const persistantTheme = window.localStorage.getItem("theme");
+    const localTheme = window.localStorage.getItem("theme");
 
-    if (persistantTheme) {
-      setTheme(persistantTheme);
+    if (localTheme) {
+      setTheme(localTheme);
     }
 
     // eslint-disable-next-line

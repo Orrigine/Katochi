@@ -9,10 +9,9 @@ a:hover{
     transition-duration: 0.3s;
 }
 
+div.test {
+    display: flex;
 
-
-.moon {
-    padding-left: 2.5%;
 }
 
 .left {
@@ -28,4 +27,7 @@ a:hover{
     display: flex;
     justify-content: flex-end;
     padding-right: 1.5%;
+}
+div.switcher {
+    padding-left: 2.5%;
 }

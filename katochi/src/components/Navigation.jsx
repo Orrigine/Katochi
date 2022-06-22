@@ -39,14 +39,12 @@ class Navigation extends Component {
             <>
                 <Row>
                     <Navbar id="nav" bg="light" expand="lg">
-                        {/* <Container> */}
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
 
-                            <Col className="vert left" lg={4}>
+                            <Col className="test left" lg={4}>
                                 <Link to="/"><img src={Logo} height="50" className="" alt="logo" /></Link>
                                 <ThemeSwitcher/>
-                                {/* <button onClick={() => switchTheme()} className="toggle-theme img-theme"><img src={Sun} height="30" className="" alt="logo" /></button> */}
                             </Col>
 
                             <Col className="mid" lg={4}>
