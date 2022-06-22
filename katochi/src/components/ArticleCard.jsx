@@ -54,11 +54,17 @@ class ArticleCard extends Component {
                     Par {this.state.article.attributes.author},
                     le {this.state.article.attributes.date}
                 </h5>
-                <Link to={"/articles#"+this.props.articleId}>
-                <div id="CardButton" className="button-div">
-                    <div id="card-button-insider" type="button" className="card-button">Lire l'article</div>
-                </div>
-                </Link>
+                <Row className="footer">
+                    <div className="line child"></div>
+                    <Col md={{ offset: 1 }} sm={{ offset: 1 }} lg={{ offset: 1 }} className="button-container child">
+
+                        <Link id="card-button" to={"/articles#" + this.props.articleId}>
+                            <div id="card-button-child" className="button-div">
+                                <div id="card-button-insider" className="card-button">Lire l'article</div>
+                            </div>
+                        </Link>
+                    </Col>
+                </Row>
             </Col>
         )
     }

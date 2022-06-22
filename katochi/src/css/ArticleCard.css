@@ -1,27 +1,50 @@
-
-
-.Card{
+.Card {
     margin-bottom: 30px;
     margin-right: 1%;
     margin-left: 1%;
     height: calc(width * 2.5);
     font-family: "ArialRound";
+   
 }
 
-.card-button{
+div.footer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+div.child {
+}
+
+div.line {
+    height: 2px;
+    background: black;
+    max-width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    max-width: 80% !important;
+    padding-bottom: 20px;
+
+}
+
+.card-button {
     font-size: 30px;
-    border-radius: 0px!important;
+    border-radius: 0px !important;
     background-color: white;
     border-color: black;
     border-width: 3px;
 }
 
-.img-articleCard{
+.img-articleCard {
     background-color: white;
     width: 100%;
 }
 
-.button-div{
+.button-div {
     display: flex;
     justify-content: center;
 }

@@ -13,6 +13,7 @@
       --background-image-main: url('../img/dark_background_logo.png');
       --background-image-twitch: url('../img/Background-twitch-dark.png');
       --background-linear: black;
+      --shadow: black;
       
       
       
@@ -26,6 +27,7 @@
         --background-image-main: url('../img/light_background_logo.png');
         --background-image-twitch: url('../img/Background-twitch-light.png');
         --background-linear-: linear-gradient(var(--yellow1), var(--yellow3), white);
+        --shadow-color: #ACA9A9;
 
     }
   
@@ -103,11 +105,18 @@
 
 #Card {
     color :var(--text-primary);
+    box-shadow: 6px 4px 5px 1px var(--shadow-color);
           transition: all .7s;
+
 
 }
 
-#CardButton {
+a#card-button {
+    text-decoration: none;
+    max-width: 80%;
+}
+
+#card-button-child {
     background-color: var(--text-secondary);
     border-radius: 15px!important;
     border: 1px solid var(--text-primary);
